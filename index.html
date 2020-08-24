@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>GPA-Calculator</title>
+    <link rel="icon" href="">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style media="screen">
+      body {
+        user-select: none;
+      }
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+      }
+      input{
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Calculator bg -->
+    <div class="">
+      <!-- inputs -->
+      <div class="">
+        <table border="1" style="">
+          <thead>
+            <th>No.</th>
+            <th>Course Name</th>
+            <th>GPA</th>
+            <th>Credits</th>
+          </thead>
+          <tbody id="add">
+            <tr>
+              <td>1</td>
+              <td><input type="text" name="" value=""></td>
+              <td><input type="number" name="" value=""></td>
+              <td><input type="number" name="" value=""></td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+        <div class="">
+          <button type="button" name="button" onclick="add()">Add Course</button>
+          <button type="button" name="button" onclick="remove()">Remove</button>
+          <br><br><button type="button" name="button" onclick="cal()">Calculate</button>
+        </div>
+        <div class="">
+          <span id="display">Result</span>
+        </div>
+      </div>
+      <!-- /inputs -->
+    </div>
+    <!-- /Calculator bg -->
+    <!-- script -->
+    <script type="text/javascript">
+    function add(){
+      var target = document.getElementById("add");
+      var tr = document.createElement("tr");
+      var rows= $('#add tr').length;
+      for (var i = 0; i < 4; i++){
+        var td = document.createElement("td");
+        var input = document.createElement("input");
+        if (i == 0){
+          td.innerText = rows + 1;
+        }
+        else if (i == 1){
+          input.setAttribute("type", "text");
+          td.appendChild(input);
+        }
+        else {
+          input.setAttribute("type", "number");
+          td.appendChild(input);
+        }
+        tr.appendChild(td);
+      }
+      target.appendChild(tr);
+    }
+
+    function remove() {
+      if ($('#add tr').length > 1) {
+        var a = $("tr:last");
+        a.remove();
+      }
+    }
+
+    function cal(){
+
+    }
+    </script>
+    <!--/script -->
+  </body>
+</html>
